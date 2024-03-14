@@ -1,7 +1,8 @@
 <div align="center">
     
 # DOCKER AND SQL NOTES 
-(*for Linux*)
+(*for Windows*)
+(forked from [Inner outer space Linda](https://github.com/inner-outer-space))
 <hr />
 
 [Docker](#docker-general-info) •
@@ -180,7 +181,7 @@ docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -v C:\Users\ahmed\Desktop\Data_engineering\week1\docker_sql\ny_taxi_postgres_data:/var/lib/postgresql/data \
   -p 5432:5432 \
   postgres:13
 ```
@@ -344,7 +345,7 @@ docker run -it -d \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -v C:\Users\ahmed\Desktop\Data_engineering\week1\docker_sql\ny_taxi_postgres_data:/var/lib/postgresql/data \
   -p 5432:5432 \
   --network=pg-network \
   --name pg-database \
@@ -506,7 +507,7 @@ WORK AROUND
 1. Create a data folder.<br>
 2. Add this data folder to the .dockerignore.<br>
 3. Create a new postgres container with the volume mounted to this new location.<br>
-    `-v $(pwd)/data/ny_taxi_postgres_data:/var/lib/postgresql/data`
+    `-v C:\Users\ahmed\Desktop\Data_engineering\week1\docker_sql\ny_taxi_postgres_data:/var/lib/postgresql/data`
 4. Make sure that docker has permissions access the data folder
 
 ```bash
