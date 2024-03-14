@@ -15,5 +15,7 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=root
+    volumes:
+      - /c/Users/ahmed/Desktop/Data_engineering/week1/docker_sql/pgadmin_data:/var/lib/pgadmin
     ports:
       - "8080:80"
