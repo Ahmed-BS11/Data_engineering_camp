@@ -1,0 +1,72 @@
+Q1
+Which tag has the following text? - Automatically remove the container when it exits 
+A1
+--rm
+
+Q2
+What is version of the package wheel ?
+A2 
+0.43.0
+
+Q3
+How many taxi trips were totally made on January 1st 2023?
+A3
+SELECT 
+    CAST(tpep_pickup_datetime AS DATE) AS date_pick,
+    CAST(tpep_dropoff_datetime AS DATE) AS date_drop,
+    COUNT(*) as trips_per_day
+FROM 
+    trips
+WHERE 
+    CAST(tpep_pickup_datetime AS DATE) = '2023-01-01' AND
+    CAST(tpep_dropoff_datetime AS DATE) = '2023-01-01' 
+GROUP BY
+    CAST(tpep_pickup_datetime AS DATE),
+    CAST(tpep_dropoff_datetime AS DATE)
+
+Q4
+Which was the pick up day with the longest trip distance? Use the pick up time for your calculations.
+A4
+SELECT 
+    CAST(tpep_pickup_datetime AS DATE) AS date_pick,
+    CAST(tpep_dropoff_datetime AS DATE) AS date_drop,
+    AGE(tpep_dropoff_datetime, tpep_pickup_datetime) AS date_difference
+FROM 
+    trips
+GROUP BY
+    CAST(tpep_pickup_datetime AS DATE),
+    CAST(tpep_dropoff_datetime AS DATE),
+    date_difference
+ORDER BY 
+    date_difference DESC;
+
+RESULT "2023-01-23"	"2023-01-30"	"6 days 23:09:11"
+
+
+Q5
+Three biggest pick up Boroughs
+Consider lpep_pickup_datetime in '2023-01-05' and ignoring Borough has Unknown
+Which were the 3 pick up Boroughs that had a sum of total_amount superior to 50000?
+
+A5
+SELECT 
+    z."Borough",
+    CAST(t."tpep_pickup_datetime" AS DATE) AS pickup_date,
+    SUM(t."total_amount") AS total_amount_sum
+FROM 
+    zones z 
+JOIN 
+    trips t ON t."PULocationID" = z."LocationID" 
+WHERE
+    CAST(t."tpep_pickup_datetime" AS DATE) = '2023-01-05' AND 
+	z."Borough" != 'Unknown'
+GROUP BY
+    z."Borough",
+    CAST(t."tpep_pickup_datetime" AS DATE)
+HAVING
+    SUM(t."total_amount") > 5000
+ORDER BY
+	SUM(t."total_amount") DESC;
+
+"Manhattan" "Queens" "Brooklyn"
+
