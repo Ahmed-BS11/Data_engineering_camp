@@ -6,7 +6,7 @@ services:
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=ny_taxi
     volumes:
-      - /c/Users/ahmed/Desktop/Data_engineering/week1/docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data:rw
+      - /var/lib/ny_taxi_postgres_data:/var/lib/postgresql/data:rw
     ports:
       - "5432:5432"
 
@@ -16,6 +16,6 @@ services:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=root
     volumes:
-      - /c/Users/ahmed/Desktop/Data_engineering/week1/docker_sql/pgadmin_data:/var/lib/pgadmin
+      - /var/lib/pgadmin_data:/var/lib/pgadmin
     ports:
       - "8080:80"
