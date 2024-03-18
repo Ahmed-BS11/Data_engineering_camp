@@ -3,11 +3,11 @@ variable "gcp_storage_location" {
   default     = "EU"
 }
 
-variable project {
+variable "project" {
   description = "Project"
   default     = "aerobic-badge-408610"
 }
-variable "credentials"  {
+variable "credentials" {
   description = "Credentials for GCP"
   default     = "path_to_key/key.json"
 }
@@ -15,7 +15,7 @@ variable "credentials"  {
 variable "region" {
   description = "Region"
   default     = "europe-west1"
-  
+
 }
 
 variable "bq_dataset_name" {
