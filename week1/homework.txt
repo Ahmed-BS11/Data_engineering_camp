@@ -70,3 +70,25 @@ ORDER BY
 
 "Manhattan" "Queens" "Brooklyn"
 
+Q6
+For the passengers picked up in September 2019 in the zone name Astoria which was the drop off zone that had the largest tip? We want the name of the zone, not the id.
+A6
+SELECT
+	z."Zone"
+FROM 
+	zones z
+WHERE z."LocationID"=(
+		SELECT 
+	    t."DOLocationID"
+	FROM 
+		zones z
+	JOIN 
+		trips t ON z."LocationID"=t."PULocationID"
+	WHERE
+		z."Zone"='Astoria' AND 
+		DATE_TRUNC('MONTH', t.tpep_pickup_datetime)='2019-09-01'
+	ORDER BY
+		t.tip_amount DESC
+	LIMIT 1
+)
+
