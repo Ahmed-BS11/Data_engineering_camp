@@ -5,11 +5,11 @@ variable "gcp_storage_location" {
 
 variable "project" {
   description = "Project"
-  default     = "aerobic-badge-408610"
+  default     = "data-engineering-417912"
 }
 variable "credentials" {
   description = "Credentials for GCP"
-  default     = "path_to_key/key.json"
+  default     = "./keys/my-creds.json"
 }
 
 variable "region" {

@@ -8,11 +8,11 @@ terraform {
 }
 
 provider "google" {
-  credentials = "./keys/my-creds.json" # This method is NOT RECOMMENDED  must be set using env var
-  project     = "ny_taxi"              # Replace with your Google Cloud project ID on GPC Dashboard
+  #credentials = "./keys/my-creds.json" # This method is NOT RECOMMENDED  must be set using env var
+  project     = "data-engineering-417912"              # Replace with your Google Cloud project ID on GPC Dashboard
   region      = "europe-west1"         # Set your desired region
 }
-/*
+
 resource "google_storage_bucket" "taxi-bucket" {
   name          = "aerobic-badge-408610-taxi-bucket"
   location      = "EU"
@@ -26,7 +26,7 @@ resource "google_storage_bucket" "taxi-bucket" {
       type = "AbortIncompleteMultipartUpload"
     }
   }
-}*/
+}
 
 resource "google_bigquery_dataset" "taxi-dataset" {
   dataset_id = "taxi_dataset"
