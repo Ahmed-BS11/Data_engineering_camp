@@ -178,3 +178,5 @@ week1/terraform/terraform
 
 google-cloud-cli-469.0.0-linux-x86_64.tar.gz
 google-cloud-sdk/
+week2/deployment/.terraform.lock.hcl
+week2/deployment/.terraform
