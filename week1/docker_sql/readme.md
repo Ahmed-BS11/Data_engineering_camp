@@ -2,6 +2,7 @@
     
 # DOCKER AND SQL NOTES 
 (*for Windows*)
+(Those aren't my notes)
 (forked from [Inner outer space Linda](https://github.com/inner-outer-space))
 <hr />
 

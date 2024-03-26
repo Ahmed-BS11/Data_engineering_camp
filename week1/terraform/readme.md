@@ -6,6 +6,8 @@
     
 # TERRAFORM and GCP 
 (*for Linux*)
+(Those aren't my notes)
+(forked from [Inner outer space Linda](https://github.com/inner-outer-space))
 <hr />
 
 [GCP ACCOUNT SETUP](#gcp-account-setup) •
